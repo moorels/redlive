@@ -10,6 +10,12 @@ export const vaults = () => {
   return db.vault.findMany()
 }
 
+export const vaultsID = (userEmailId) => {
+  return db.vault.findMany({
+    where: { userEmailId: userEmailId.userEmailId },
+  })
+}
+
 export const vault = ({ id }) => {
   return db.vault.findUnique({
     where: { id },

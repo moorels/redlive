@@ -12,6 +12,7 @@ export const schema = gql`
   type Query {
     vaults: [Vault!]!
     vault(id: Int!): Vault
+    vaultsID(userEmailId: String): [Vault]
   }
 
   input CreateVaultInput {
