@@ -1,0 +1,40 @@
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = "native"
+}
+
+
+model User {
+  id             Int @id @default(autoincrement())
+  email          String  @unique
+  hashedPassword String
+  salt           String
+  vault Vault[]
+}
+
+
+model Vault {
+
+  id Int  @id @default(autoincrement())
+  vaultname String
+  vaultusername String
+  vaultpassword String
+  vaultpassword2 String
+  useremail User? @relation(fields: [userEmailId], references: [email])
+  userEmailId String
+}
+
+model Contact {
+
+  id Int  @id @default(autoincrement())
+  contactname String
+  contactemail String
+  contactphone String
+  contactsuburb String
+  contactmessage String
+}
