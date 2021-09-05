@@ -38,7 +38,7 @@ const HeadzLayout = ({ children }) => {
                       </span>
                       <span> Home</span>
                     </Link>
-                    <Link
+                    {/* <Link
                       className="p-2 text-indigo-100 transition-colors duration-150 bg-blue-500 rounded-lg focus:shadow-outline hover:bg-blue-700"
                       to={routes.about()}
                     >
@@ -46,7 +46,7 @@ const HeadzLayout = ({ children }) => {
                         <span className=" animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-100 opacity-75"></span>
                       </span>
                       <span> About</span>
-                    </Link>
+                    </Link> */}
                     <span className=" p-2 h-9 text-indigo-100 transition-colors duration-150 bg-blue-500 rounded-lg focus:shadow-outline hover:bg-blue-700">
                       {isAuthenticated ? (
                         <button onClick={() => logmeout.logOut()}>
@@ -54,7 +54,7 @@ const HeadzLayout = ({ children }) => {
                             <span className=" animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-100 opacity-75"></span>
                           </span>
 
-                          <span className="p-2 w-4"> Logout</span>
+                          <span className="p-2 w-4">Logout</span>
                         </button>
                       ) : (
                         <Link
@@ -76,7 +76,7 @@ const HeadzLayout = ({ children }) => {
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-100">
                         <span className=" animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-100 opacity-75"></span>
                       </span>
-                      <span> Contact Us</span>
+                      <span> Contact</span>
                     </Link>
                   </div>
                 </li>
