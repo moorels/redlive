@@ -1,7 +1,14 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+import { useAuth } from '@redwoodjs/auth'
 
 const AboutPage = () => {
+  const logmeout = useAuth()
+  const { isAuthenticated } = useAuth()
+  {
+    isAuthenticated ? logmeout.logOut() : <div></div>
+  }
+
   return (
     <>
       <MetaTags

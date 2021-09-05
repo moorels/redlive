@@ -1,7 +1,7 @@
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 import { Link, routes } from '@redwoodjs/router'
-
+import { useAuth } from '@redwoodjs/auth'
 import { QUERY } from 'src/components/Contact/ContactsCell'
 
 const DELETE_CONTACT_MUTATION = gql`
@@ -39,6 +39,12 @@ const checkboxInputTag = (checked) => {
 }
 
 const ContactsList = ({ contacts }) => {
+
+  const logmeout = useAuth()
+  const { isAuthenticated } = useAuth()
+  {
+    isAuthenticated ? logmeout.logOut() : <div></div>
+  }
   const [deleteContact] = useMutation(DELETE_CONTACT_MUTATION, {
     onCompleted: () => {
       toast.success('Contact deleted')

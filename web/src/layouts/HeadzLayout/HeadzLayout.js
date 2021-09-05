@@ -2,7 +2,7 @@ import { Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 
 const HeadzLayout = ({ children }) => {
-  const { isAuthenticated, logIn } = useAuth()
+  const { isAuthenticated } = useAuth()
   const logmeout = useAuth()
 
   return (

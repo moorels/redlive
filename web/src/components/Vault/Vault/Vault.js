@@ -49,15 +49,11 @@ const Vault = ({ vault }) => {
       <div className="rw-segment">
         <header className="rw-segment-header">
           <h2 className="rw-heading rw-heading-secondary">
-            Vault {vault.id} Detail
+            {vault.vaultname} Details
           </h2>
         </header>
         <table className="rw-table">
           <tbody>
-            <tr>
-              <th>Id</th>
-              <td>{vault.id}</td>
-            </tr>
             <tr>
               <th>Vaultname</th>
               <td>{vault.vaultname}</td>
@@ -73,10 +69,6 @@ const Vault = ({ vault }) => {
             <tr>
               <th>Vaultpassword2</th>
               <td>{vault.vaultpassword2}</td>
-            </tr>
-            <tr>
-              <th>User email id</th>
-              <td>{vault.userEmailId}</td>
             </tr>
           </tbody>
         </table>

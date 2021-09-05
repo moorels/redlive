@@ -1,5 +1,6 @@
 import { Link, navigate, routes } from '@redwoodjs/router'
-import { useRef } from 'react'
+import { useRef, useContext } from 'react'
+import { UserContext } from '../../UserContext'
 import {
   Form,
   Label,
@@ -13,19 +14,22 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 import { useEffect } from 'react'
 
 const SignupPage = () => {
+  const { user, setUser } = useContext(UserContext)
+
   const { isAuthenticated, signUp } = useAuth()
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate(routes.home())
+      setUser(usernameRef.current.value)
+      navigate(routes.vaults())
     }
-  }, [isAuthenticated])
+  }, [isAuthenticated, setUser])
 
   // focus on email box on page load
   const usernameRef = useRef()
   useEffect(() => {
     usernameRef.current.focus()
-  }, [])
+  }, [setUser])
 
   const onSubmit = async (data) => {
     const response = await signUp({ ...data })

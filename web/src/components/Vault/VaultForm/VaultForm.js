@@ -37,7 +37,7 @@ const VaultForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Vaultname
+          Name
         </Label>
         <TextField
           name="vaultname"
@@ -54,7 +54,7 @@ const VaultForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Vaultusername
+          Username
         </Label>
         <TextField
           name="vaultusername"
@@ -71,7 +71,7 @@ const VaultForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Vaultpassword
+          Password
         </Label>
         <TextField
           name="vaultpassword"
@@ -88,7 +88,7 @@ const VaultForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Vaultpassword2
+          Extra Notes
         </Label>
         <TextField
           name="vaultpassword2"

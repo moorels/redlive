@@ -51,7 +51,7 @@ export const Success = ({ vault }) => {
     <div className="rw-segment">
       <header className="rw-segment-header">
         <h2 className="rw-heading rw-heading-secondary">
-          Edit Vault {vault.id}
+          Edit {vault.vaultname}
         </h2>
       </header>
       <div className="rw-segment-main">

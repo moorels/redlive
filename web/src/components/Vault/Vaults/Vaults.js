@@ -61,24 +61,22 @@ const VaultsList = ({ vaults }) => {
       <table className="rw-table">
         <thead>
           <tr>
-            <th>Id</th>
-            <th>Vaultname</th>
-            <th>Vaultusername</th>
-            <th>Vaultpassword</th>
-            <th>Vaultpassword2</th>
-            <th>User email id</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Extra Notes</th>
+
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           {vaults.map((vault) => (
             <tr key={vault.id}>
-              <td>{truncate(vault.id)}</td>
               <td>{truncate(vault.vaultname)}</td>
               <td>{truncate(vault.vaultusername)}</td>
               <td>{truncate(vault.vaultpassword)}</td>
               <td>{truncate(vault.vaultpassword2)}</td>
-              <td>{truncate(vault.userEmailId)}</td>
+
               <td>
                 <nav className="rw-table-actions">
                   <Link
