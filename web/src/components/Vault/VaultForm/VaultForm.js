@@ -6,6 +6,8 @@ import {
   TextField,
   Submit,
 } from '@redwoodjs/forms'
+import { UserContext } from '../../../UserContext'
+import { useRef, useContext } from 'react'
 
 const formatDatetime = (value) => {
   if (value) {
@@ -14,6 +16,8 @@ const formatDatetime = (value) => {
 }
 
 const VaultForm = (props) => {
+  const { user, setUser } = useContext(UserContext)
+
   const onSubmit = (data) => {
     props.onSave(data, props?.vault?.id)
   }
@@ -101,11 +105,12 @@ const VaultForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          User email id
+          .
         </Label>
         <TextField
           name="userEmailId"
-          defaultValue={props.vault?.userEmailId}
+          defaultValue={user}
+          hidden
           className="rw-input"
           errorClassName="rw-input rw-input-error"
           validation={{ required: true }}

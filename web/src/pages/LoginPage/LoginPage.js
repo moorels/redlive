@@ -1,5 +1,6 @@
 import { Link, navigate, routes } from '@redwoodjs/router'
-import { useRef } from 'react'
+import { useRef, useContext } from 'react'
+import { UserContext } from '../../UserContext'
 import {
   Form,
   Label,
@@ -13,13 +14,16 @@ import { toast, Toaster } from '@redwoodjs/web/toast'
 import { useEffect } from 'react'
 
 const LoginPage = () => {
+  const { user, setUser } = useContext(UserContext)
+
   const { isAuthenticated, logIn } = useAuth()
 
   useEffect(() => {
     if (isAuthenticated) {
       navigate(routes.vaults())
+      setUser(usernameRef.current.value)
     }
-  }, [isAuthenticated])
+  }, [isAuthenticated, setUser])
 
   const usernameRef = useRef()
   useEffect(() => {
