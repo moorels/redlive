@@ -3,8 +3,8 @@ import { Link, routes } from '@redwoodjs/router'
 import Vaults from 'src/components/Vault/Vaults'
 
 export const QUERY = gql`
-  query FindVaults {
-    vaults {
+  query FindManyVaults($userEmailId: String) {
+    vaultsID(userEmailId: $userEmailId) {
       id
       vaultname
       vaultusername
@@ -18,20 +18,13 @@ export const QUERY = gql`
 export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => {
-  return (
-    <div className="rw-text-center">
-      {'No vaults yet. '}
-      <Link to={routes.newVault()} className="rw-link">
-        {'Create one?'}
-      </Link>
-    </div>
-  )
+  return <div className="rw-text-center"></div>
 }
 
 export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error.message}</div>
 )
 
-export const Success = ({ vaults }) => {
-  return <Vaults vaults={vaults} />
+export const Success = ({ vaultsID }) => {
+  return <Vaults vaults={vaultsID} />
 }
