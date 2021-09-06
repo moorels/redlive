@@ -51,7 +51,7 @@ const VaultsList = ({ vaults }) => {
   })
 
   const onDeleteClick = (id) => {
-    if (confirm('Are you sure you want to delete vault ' + id + '?')) {
+    if (confirm('Are you sure you want to delete entry ' + id + '?')) {
       deleteVault({ variables: { id } })
     }
   }

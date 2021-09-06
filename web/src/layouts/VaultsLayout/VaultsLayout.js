@@ -1,30 +1,22 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Toaster } from '@redwoodjs/web/toast'
 import VaultsCell from 'src/components/Vault/VaultsCell/VaultsCell'
-import { useState } from 'react'
-import { Form, TextField, Submit } from '@redwoodjs/forms'
-import { useAuth } from '@redwoodjs/auth'
 import { UserContext } from '../../UserContext'
 import { useContext } from 'react'
 
 const VaultsLayout = ({ children }) => {
-  const logmeout = useAuth()
+  const { user } = useContext(UserContext)
 
-  const { user, setUser } = useContext(UserContext)
-
-  const [num, setNum] = useState('')
-
-  const onSubmit = (data) => {
-    setNum(data.intField)
-    return data
-  }
+  var today = new Date()
+  var date =
+    today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear()
 
   return (
     <div className="py-2 px-4 ">
       <div>
         <div className="">
           <header className="">
-            <h2 className="rw-heading text-red-800">Yours Vault</h2>
+            <h2 className="rw-heading text-red-800">{date} Your Vault</h2>
           </header>
 
           <Link

@@ -7,16 +7,11 @@ import {
   Submit,
 } from '@redwoodjs/forms'
 import { UserContext } from '../../../UserContext'
-import { useRef, useContext } from 'react'
-
-const formatDatetime = (value) => {
-  if (value) {
-    return value.replace(/:\d{2}\.\d{3}\w/, '')
-  }
-}
+import { useContext } from 'react'
+import { Link, routes } from '@redwoodjs/router'
 
 const VaultForm = (props) => {
-  const { user, setUser } = useContext(UserContext)
+  const { user } = useContext(UserContext)
 
   const onSubmit = (data) => {
     props.onSave(data, props?.vault?.id)
@@ -122,6 +117,9 @@ const VaultForm = (props) => {
           <Submit disabled={props.loading} className="rw-button rw-button-blue">
             Save
           </Submit>
+          <Link to={routes.vaults()} className="rw-button rw-button-blue">
+            Close
+          </Link>
         </div>
       </Form>
     </div>
